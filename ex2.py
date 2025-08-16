@@ -22,10 +22,13 @@ while True:
     elif event == "Abrir":
         file_path = sg.popup_get_file("Selecionar uma imagem", file_types=(("Imagens","*.jpg *.png"),))
         if file_path:
+            
             resized_img =resize_image(file_path)
-            img_bytes =io.BytesIO()
+            #Converte a imagem PIL para o formato que o PySimpleGUI
+            img_bytes =io.BytesIO()# Permite criar objetos semelhantes a arquivos na memoria
             resized_img.save(img_bytes, format="PNG")
             window["-IMAGE-"].update(data=img_bytes.getvalue())
+    
     elif event == "Sobre":
         sg.popup("Desenvolvido pelo BCC - 6 semestre. \n\n Maria Eduarda Mariano Coelho")
 
