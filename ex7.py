@@ -50,9 +50,9 @@ def open_image(filename):
         for w in range(width):
             for h in range(height):
                 r, g, b = image_atual.getpixel((w, h))
-                _r = int(255 - r)
-                _g = int(255 - g)
-                _b = int(255 - b)
+                _r = int(0.3 * r) + int(0.59 * g) + int(0.11 * b)
+                _g = int(0.3 * r) + int(0.59 * g) + int(0.11 * b)
+                _b = int(0.3 * r) + int(0.59 * g) + int(0.11 * b)
                 
                 image_copia[w, h] = (_r, _g, _b)
         
